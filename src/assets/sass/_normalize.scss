@@ -42,7 +42,7 @@ body {
   background: $light;
 }
 /* SET GRID TEMPLATE */
-.container {
+.container-principal {
   width: 100%;
   min-height: 100vh;
   display: grid;
@@ -59,7 +59,7 @@ body {
 
 .main {
   grid-area: main;
-  //   height: 80vh;
+  width: 100%;
 }
 
 footer {

@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container-principal">
     <header class="header">
       <router-link to="/" class="logo">
         <!-- Lydie BALLIOT -->

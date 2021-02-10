@@ -1,0 +1,43 @@
+.main-card-body {
+  .box-project {
+    display: grid;
+    grid:
+      ". btn" auto
+      "img details" auto
+      / 1fr 1fr;
+    padding: 2rem;
+    margin: 1rem;
+    align-items: center;
+    background-color: $grey;
+    color: $light;
+    h4 {
+      text-align: center;
+      color: $red;
+      font-size: 4rem;
+      text-transform: uppercase;
+      font-weight: 200;
+    }
+    img {
+      grid-area: img;
+      width: 100%;
+      height: auto;
+    }
+    .separator {
+      grid-area: separator;
+      margin: auto;
+      margin-bottom: 3rem;
+    }
+    &-details {
+      grid-area: details;
+      padding: 2rem;
+    }
+    &-change {
+      grid-area: btn;
+      text-align: end;
+      i {
+        font-size: 2.5rem;
+        padding-right: 1rem;
+      }
+    }
+  }
+}
