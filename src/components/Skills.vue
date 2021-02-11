@@ -17,9 +17,23 @@
           :fields="cols"
           class="card-table"
         >
-          <template v-slot:cell(icon)="data">
-            <i :class="data.item.icon"></i>
+          <!-- Template projets -->
+          <template v-slot:cell(lesProjets)="data">
+            <span v-for="projet in data.item.lesProjets" :key="projet.id">
+              {{ projet.nom }},
+            </span>
           </template>
+
+          <!-- Template icon -->
+          <template v-slot:cell(icon_competence)="data">
+            <i
+              v-if="data.item.icon_competence != '.'"
+              :class="data.item.icon_competence"
+              class="fab fa-2x"
+            ></i>
+          </template>
+
+          <!-- Template Actions -->
           <template v-slot:cell(actions)="data">
             <span title="Modifier la compétence">
               <router-link
@@ -44,22 +58,30 @@
 </template>
 
 <script>
+import Api from "@/services/api";
+
 export default {
   name: "Skills",
   data() {
     return {
       cols: [
-        { key: "nom", sortable: true, label: "Nom" },
-        { key: "icon", sortable: false, label: "Icône" },
+        { key: "nom_competence", sortable: true, label: "Nom" },
+        { key: "lesProjets", sortable: true, label: "Projets" },
+        { key: "icon_competence", sortable: false, label: "Icône" },
         { key: "actions", sortable: false, label: "Actions" }
       ],
-      listeSkills: [
-        { id: 1, nom: "HTML", icon: "fab fa-html5 fa-2x" },
-        { id: 2, nom: "CSS", icon: "fab fa-css3-alt fa-2x" },
-        { id: 3, nom: "Javascript", icon: "fab fa-js fa-2x" },
-        { id: 4, nom: "VueJS", icon: "fab fa-vuejs fa-2x" }
-      ]
+      listeSkills: []
     };
+  },
+  created() {
+    Api.get("listeCompetences")
+      .then(response => {
+        this.listeSkills = response;
+        console.log("liste skills", this.listeSkills);
+      })
+      .catch(error => {
+        console.log(error);
+      });
   }
 };
 </script>

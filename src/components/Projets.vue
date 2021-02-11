@@ -74,7 +74,7 @@ export default {
   created() {
     Api.get("listeProjets").then(response => {
       this.listeProject = response;
-      console.log("liste projet", this.listeProject);
+      //   console.log("liste projet", this.listeProject);
     });
   }
 };

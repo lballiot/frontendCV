@@ -391,7 +391,8 @@ body {
 
 .main {
   grid-area: main;
-  width: 100%; }
+  width: 100%;
+  padding-bottom: 5rem; }
 
 footer {
   grid-area: footer;

@@ -3,7 +3,9 @@ import param from "../config/params";
 
 export default {
   async get(type) {
-    return axios.get(param[type]).then(response => response.data);
+    return axios.get(param[type]).then(response => {
+      return response.data;
+    });
   },
   async maj(type, params) {
     return axios.post(param[type], params).then(response => {

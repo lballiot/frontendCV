@@ -11,10 +11,19 @@
     <div class="main-card-body">
       <div class="main-card-body-table">
         <b-table hover :items="listeNotions" :fields="cols" class="card-table">
+          <!-- Template icon -->
           <template v-slot:cell(icon)="data">
             <i :class="data.item.icon"></i>
           </template>
 
+          <!-- Template projets -->
+          <template v-slot:cell(lesProjets)="data">
+            <span v-for="projet in data.item.lesProjets" :key="projet.id">
+              {{ projet.nom }},
+            </span>
+          </template>
+
+          <!-- Template actions -->
           <template v-slot:cell(actions)="data">
             <span title="Modifier la notion">
               <router-link
@@ -39,21 +48,25 @@
 </template>
 
 <script>
+import Api from "@/services/api";
+
 export default {
   name: "Notions",
   data() {
     return {
       cols: [
-        { key: "nom", sortable: true, label: "Nom" },
+        { key: "nom_notion", sortable: true, label: "Nom" },
+        { key: "lesProjets", sortable: true, label: "Projets" },
         { key: "actions", sortable: false, label: "Actions" }
       ],
-      listeNotions: [
-        { id: 1, nom: "Responsive" },
-        { id: 2, nom: "SEO" },
-        { id: 3, nom: "Charte graphique" },
-        { id: 4, nom: "Design" }
-      ]
+      listeNotions: []
     };
+  },
+  created() {
+    Api.get("listeNotions").then(response => {
+      this.listeNotions = response;
+      //   console.log("liste notions", this.listeNotions);
+    });
   }
 };
 </script>
