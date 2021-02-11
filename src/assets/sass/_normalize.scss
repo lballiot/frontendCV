@@ -74,6 +74,10 @@ footer {
   color: $light;
   p {
     margin: 0;
+    a {
+      color: $red;
+      margin: 0;
+    }
   }
 }
 

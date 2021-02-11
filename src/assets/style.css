@@ -405,6 +405,9 @@ footer {
   color: #e8e9ed; }
   footer p {
     margin: 0; }
+    footer p a {
+      color: #e94f37;
+      margin: 0; }
 
 /* SET DEFAULT TITLE SIZE */
 h1 {
@@ -536,3 +539,19 @@ i {
     .main-card-body .box-project-change i {
       font-size: 2.5rem;
       padding-right: 1rem; }
+
+.main-card-body-table {
+  display: flex;
+  justify-content: center; }
+
+.main-card-body .card-table {
+  max-width: 80%; }
+  .main-card-body .card-table thead {
+    background: #5a5f72;
+    color: #e8e9ed; }
+    .main-card-body .card-table thead tr th {
+      border: 1px solid #5a5f72; }
+  .main-card-body .card-table tbody tr {
+    border: 1px solid #5a5f72; }
+    .main-card-body .card-table tbody tr td {
+      border: 1px solid #5a5f72; }

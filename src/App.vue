@@ -34,7 +34,10 @@
 
     <footer>
       <p>&copy; {{ year }}</p>
-      <p>Made by <span>Lydie BALLIOT</span></p>
+      <p>
+        Made by
+        <span><a href="https://lydieballiot.fr">Lydie BALLIOT</a></span>
+      </p>
     </footer>
   </div>
 </template>

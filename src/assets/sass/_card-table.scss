@@ -1,0 +1,26 @@
+.main-card-body {
+  &-table {
+    display: flex;
+    justify-content: center;
+  }
+  .card-table {
+    max-width: 80%;
+    thead {
+      background: $grey;
+      color: $light;
+      tr {
+        th {
+          border: 1px solid $grey;
+        }
+      }
+    }
+    tbody {
+      tr {
+        border: 1px solid $grey;
+        td {
+          border: 1px solid $grey;
+        }
+      }
+    }
+  }
+}

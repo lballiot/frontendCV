@@ -2,7 +2,7 @@ import Vue from "vue";
 import Router from "vue-router";
 import Accueil from "@/components/Accueil";
 import Projets from "@/components/Projets";
-import Competences from "@/components/Competences";
+import Skills from "@/components/Skills";
 import Notions from "@/components/Notions";
 
 Vue.use(Router);
@@ -21,8 +21,8 @@ export default new Router({
     },
     {
       path: "/competences",
-      name: "Competences",
-      component: Competences
+      name: "Skills",
+      component: Skills
     },
     {
       path: "/notions",
