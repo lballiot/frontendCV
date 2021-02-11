@@ -1,7 +1,11 @@
 import Vue from "vue";
 import Router from "vue-router";
 import Accueil from "@/components/Accueil";
+
+// Projet
 import Projets from "@/components/Projets";
+// import CreateProjet from "@/components/Projets/CreateProjet";
+
 import Skills from "@/components/Skills";
 import Notions from "@/components/Notions";
 
@@ -19,6 +23,11 @@ export default new Router({
       name: "Projets",
       component: Projets
     },
+    // {
+    //   path: "/create-projet",
+    //   name: "CreateProjet",
+    //   component: CreateProjet
+    // },
     {
       path: "/competences",
       name: "Skills",
