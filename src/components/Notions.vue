@@ -3,7 +3,7 @@
     <div class="main-card-header">
       <h2>Liste des notions maîtrisées :</h2>
       <span title="Créer une nouvelle notion">
-        <router-link to="/create-notion">
+        <router-link to="/creer-notion">
           <i class="fa fa-plus fa-2x"></i>
         </router-link>
       </span>

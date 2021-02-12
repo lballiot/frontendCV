@@ -3,7 +3,7 @@
     <div class="main-card-header">
       <h2>Liste des projets réalisés :</h2>
       <span title="Créer un nouveau projet">
-        <router-link to="/create-project">
+        <router-link to="/creer-projet">
           <i class="fa fa-plus fa-2x"></i>
         </router-link>
       </span>

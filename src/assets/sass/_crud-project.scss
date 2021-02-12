@@ -1,0 +1,13 @@
+.card-projet {
+  margin: 3rem;
+  display: grid;
+  grid:
+    "imgProjet inputs" auto
+    / 1fr 2fr;
+  .previewImage-projet {
+    grid-area: imgProjet;
+  }
+  form {
+    grid-area: inputs;
+  }
+}

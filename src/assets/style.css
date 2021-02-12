@@ -436,28 +436,13 @@ p {
 ul {
   list-style: none; }
 
-a {
+a,
+a:hover {
   text-decoration: none;
   color: #e8e9ed; }
 
 span {
   color: #e94f37; }
-
-label {
-  border-right: 1px solid #e8e9ed;
-  padding: 0.5rem;
-  margin-right: 0.1rem;
-  color: #e8e9ed;
-  background: #e8e9ed; }
-
-input {
-  border: #5a5f72;
-  background: #e8e9ed;
-  color: #e8e9ed;
-  padding: 0.5rem; }
-
-input::placeholder {
-  color: #5a5f72; }
 
 i {
   color: #e94f37; }
@@ -473,6 +458,61 @@ i {
   color: #e94f37;
   font-family: "Titan One", cursive;
   letter-spacing: 0.5rem; }
+
+label {
+  border-right: 1px solid #5a5f72;
+  border-radius: 4px;
+  padding: 1rem;
+  margin: 0 0.3rem 0 0;
+  color: #e8e9ed;
+  background: #5a5f72; }
+
+input {
+  border: none;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #5a5f72;
+  background: transparent;
+  color: #24262e;
+  padding: 1rem;
+  width: 80%; }
+
+input:focus {
+  outline: none;
+  color: #24262e; }
+
+input::placeholder {
+  color: #5a5f72; }
+
+select {
+  margin: 1rem;
+  width: 80%;
+  padding: 1rem;
+  background: transparent;
+  border-radius: 4px; }
+  select:focus {
+    outline: none; }
+
+.custom-file {
+  margin-top: 1.5rem;
+  width: 100%; }
+  .custom-file label {
+    cursor: pointer;
+    width: 100%; }
+  .custom-file input {
+    visibility: hidden; }
+
+.btn, .btn-submit, .btn-cancel {
+  border-radius: 4px;
+  padding: 1rem 2rem;
+  margin-top: 3rem;
+  background: transparent;
+  border: 1px solid #24262e; }
+  .btn-submit {
+    background: #24262e;
+    color: #e94f37;
+    padding: 1rem 3rem; }
+  .btn-cancel {
+    border: 1px solid #e94f37; }
 
 .header {
   display: flex;
@@ -556,3 +596,41 @@ i {
     border: 1px solid #5a5f72; }
     .main-card-body .card-table tbody tr td {
       border: 1px solid #5a5f72; }
+
+.card-create {
+  margin-top: 4rem;
+  padding: 2rem; }
+  .card-create form {
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%; }
+    .card-create form .legend {
+      margin-top: 2.5rem;
+      font-size: 1.2rem;
+      color: #e94f37;
+      width: 80%; }
+    .card-create form .previewIcon {
+      display: flex;
+      width: 80%; }
+      .card-create form .previewIcon p {
+        font-size: 1.4rem; }
+      .card-create form .previewIcon i {
+        align-self: center; }
+  .card-create-btn {
+    width: 80%;
+    display: flex;
+    justify-content: space-between; }
+    .card-create-btn .btn-cancel a {
+      color: #24262e; }
+
+.card-projet {
+  margin: 3rem;
+  display: grid;
+  grid: "imgProjet inputs" auto / 1fr 2fr; }
+  .card-projet .previewImage-projet {
+    grid-area: imgProjet; }
+  .card-projet form {
+    grid-area: inputs; }

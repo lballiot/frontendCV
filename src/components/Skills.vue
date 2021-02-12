@@ -3,7 +3,7 @@
     <div class="main-card-header">
       <h2>Liste des compétences maîtrisées :</h2>
       <span title="Créer une nouvelle compétence">
-        <router-link to="/create-skill">
+        <router-link to="/creer-skill">
           <i class="fa fa-plus fa-2x"></i>
         </router-link>
       </span>

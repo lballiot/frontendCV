@@ -12,3 +12,74 @@
   font-family: "Titan One", cursive;
   letter-spacing: 0.5rem;
 }
+
+label {
+  border-right: 1px solid $grey;
+  border-radius: 4px;
+  padding: 1rem;
+  margin: 0 0.3rem 0 0;
+  color: $light;
+  background: $grey;
+}
+input {
+  border: none;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid $grey;
+  background: transparent;
+  color: $dark;
+  padding: 1rem;
+  width: 80%;
+}
+
+input:focus {
+  outline: none;
+  color: $dark;
+}
+
+input::placeholder {
+  color: $grey;
+}
+
+// SELECT
+select {
+  margin: 1rem;
+  width: 80%;
+  padding: 1rem;
+  background: transparent;
+  border-radius: 4px;
+  &:focus {
+    outline: none;
+  }
+}
+
+// Image input
+.custom-file {
+  margin-top: 1.5rem;
+  width: 100%;
+  label {
+    cursor: pointer;
+    width: 100%;
+  }
+  input {
+    visibility: hidden;
+  }
+}
+
+// BTN
+.btn {
+  border-radius: 4px;
+  padding: 1rem 2rem;
+  margin-top: 3rem;
+  background: transparent;
+  border: 1px solid $dark;
+  &-submit {
+    @extend .btn;
+    background: $dark;
+    color: $red;
+    padding: 1rem 3rem;
+  }
+  &-cancel {
+    @extend .btn;
+    border: 1px solid $red;
+  }
+}

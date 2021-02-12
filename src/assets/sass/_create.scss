@@ -1,0 +1,38 @@
+.card-create {
+  margin-top: 4rem;
+  padding: 2rem;
+  form {
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    .legend {
+      margin-top: 2.5rem;
+      font-size: 1.2rem;
+      color: $red;
+      width: 80%;
+    }
+    .previewIcon {
+      display: flex;
+      width: 80%;
+      p {
+        font-size: 1.4rem;
+      }
+      i {
+        align-self: center;
+      }
+    }
+  }
+  &-btn {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    .btn-cancel {
+      a {
+        color: $dark;
+      }
+    }
+  }
+}

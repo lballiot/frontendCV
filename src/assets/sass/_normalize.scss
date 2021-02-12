@@ -115,31 +115,14 @@ p {
 ul {
   list-style: none;
 }
-a {
+a,
+a:hover {
   text-decoration: none;
   color: $light;
 }
 
 span {
   color: $red;
-}
-
-label {
-  border-right: 1px solid $light;
-  padding: 0.5rem;
-  margin-right: 0.1rem;
-  color: $light;
-  background: $light;
-}
-input {
-  border: $grey;
-  background: $light;
-  color: $light;
-  padding: 0.5rem;
-}
-
-input::placeholder {
-  color: $grey;
 }
 
 i {

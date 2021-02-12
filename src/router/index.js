@@ -4,10 +4,15 @@ import Accueil from "@/components/Accueil";
 
 // Projet
 import Projets from "@/components/Projets";
-// import CreateProjet from "@/components/Projets/CreateProjet";
+import CreateProjet from "@/components/Projets/CreateProjet";
 
+// Skills
 import Skills from "@/components/Skills";
+import CreateSkill from "@/components/Skills/CreateSkill";
+
+// Notions
 import Notions from "@/components/Notions";
+import CreateNotion from "@/components/Notions/CreateNotion";
 
 Vue.use(Router);
 
@@ -23,20 +28,30 @@ export default new Router({
       name: "Projets",
       component: Projets
     },
-    // {
-    //   path: "/create-projet",
-    //   name: "CreateProjet",
-    //   component: CreateProjet
-    // },
+    {
+      path: "/creer-projet",
+      name: "CreateProjet",
+      component: CreateProjet
+    },
     {
       path: "/competences",
       name: "Skills",
       component: Skills
     },
     {
+      path: "/creer-skill",
+      name: "CreateSkill",
+      component: CreateSkill
+    },
+    {
       path: "/notions",
       name: "Notions",
       component: Notions
+    },
+    {
+      path: "/creer-notion",
+      name: "CreateNotion",
+      component: CreateNotion
     }
   ]
 });
