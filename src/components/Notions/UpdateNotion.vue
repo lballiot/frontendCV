@@ -1,7 +1,7 @@
 <template>
   <div class="main">
     <div class="main-card-header">
-      <h2>Création d'une notion :</h2>
+      <h2>Modification d'une notion :</h2>
     </div>
     <div class="main-card-body">
       <div class="card-create">
@@ -10,7 +10,7 @@
             required
             type="text"
             placeholder="Nom de la notion"
-            v-model="notion"
+            v-model="notion.nom_notion"
           />
           <div class="card-create-btn">
             <router-link to="/notions">
@@ -19,7 +19,7 @@
               </button>
             </router-link>
             <button class="btn-submit">
-              Ajouter
+              Modifier
             </button>
           </div>
         </form>
@@ -32,23 +32,38 @@
 import Api from "@/services/api";
 
 export default {
-  name: "CreateNotion",
+  name: "UpdateNotion",
   data() {
     return {
-      notion: ""
+      notion: {
+        id: 0,
+        nom_notion: ""
+      }
     };
   },
   methods: {
     submit: function() {
       let params = new FormData();
-      params.append("nom_notion", this.notion);
-      Api.maj("createNotion", params)
+      params.append("id", this.notion.id);
+      params.append("nom_notion", this.notion.nom_notion);
+      Api.maj("updateNotion", params)
         .then(response => {
-          console.log("response", response);
+          console.log("modification", response);
           this.$router.push("/notions");
         })
         .catch(error => console.log(error));
     }
+  },
+  created() {
+    this.notion.id = this.$route.params.id;
+    let params = new FormData();
+    params.append("id", this.notion.id);
+    Api.find("getNotion", params)
+      .then(response => {
+        console.log("response", response);
+        this.notion = response;
+      })
+      .catch(error => console.log(error));
   }
 };
 </script>

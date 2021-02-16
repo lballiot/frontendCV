@@ -28,7 +28,7 @@
             <span title="Modifier la notion">
               <router-link
                 :to="{
-                  name: 'EditNotion',
+                  name: 'UpdateNotion',
                   params: { id: data.item.id }
                 }"
               >

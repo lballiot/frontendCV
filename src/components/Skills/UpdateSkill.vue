@@ -1,7 +1,7 @@
 <template>
   <div class="main">
     <div class="main-card-header">
-      <h2>Création d'une compétence :</h2>
+      <h2>Modification d'une compétence :</h2>
     </div>
     <div class="main-card-body">
       <div class="card-create">
@@ -10,7 +10,7 @@
             required
             type="text"
             placeholder="Nom de la compétence"
-            v-model="skill"
+            v-model="skill.nom_competence"
           />
           <p class="legend">
             Vous devez mettre la classe d'une icône fontawesome, si celle ci
@@ -20,11 +20,14 @@
             required
             type="text"
             placeholder="Icône de la compétence"
-            v-model="iconSkill"
+            v-model="skill.icon_competence"
           />
-          <div class="previewIcon" v-if="iconSkill && iconSkill != '.'">
+          <div
+            class="previewIcon"
+            v-if="skill.icon_competence && skill.icon_competence != '.'"
+          >
             <p>Prévisualisation de l'icône fontawesome :</p>
-            <i class="fab fa-2x" :class="iconSkill"></i>
+            <i class="fab fa-2x" :class="skill.icon_competence"></i>
           </div>
 
           <div class="card-create-btn">
@@ -34,7 +37,7 @@
               </button>
             </router-link>
             <button class="btn-submit">
-              Ajouter
+              Modifier
             </button>
           </div>
         </form>
@@ -47,25 +50,41 @@
 import Api from "@/services/api";
 
 export default {
-  name: "CreateSkill",
+  name: "UpdateSkill",
   data() {
     return {
-      skill: "",
-      iconSkill: ""
+      skill: {
+        id: 0,
+        nom_competence: "",
+        icon_competence: ""
+      }
     };
   },
   methods: {
     submit: function() {
       let params = new FormData();
-      params.append("nom_competence", this.skill);
-      params.append("icon_competence", this.iconSkill);
-      Api.maj("createCompetence", params)
+      params.append("id", this.skill.id);
+      params.append("nom_competence", this.skill.nom_competence);
+      params.append("icon_competence", this.skill.icon_competence);
+      Api.maj("updateCompetence", params)
         .then(response => {
-          console.log("respose", response);
+          console.log("response modification");
+          console.log(response);
           this.$router.push("/competences");
         })
         .catch(error => console.log(error));
     }
+  },
+  created() {
+    this.skill.id = this.$route.params.id;
+    let params = new FormData();
+    params.append("id", this.skill.id);
+    Api.find("getCompetence", params)
+      .then(response => {
+        console.log("response", response);
+        this.skill = response;
+      })
+      .catch(error => console.log(error));
   }
 };
 </script>

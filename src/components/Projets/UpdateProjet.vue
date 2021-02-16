@@ -12,21 +12,15 @@
             <input
               type="file"
               id="validatedCustomFile"
-              required
               @change="previewImage"
             />
             <div class="invalid-feedback">Image invalide</div>
           </div>
         </div>
         <form action="" @submit.prevent="submit">
-          <input
-            required
-            type="text"
-            placeholder="Nom du projet"
-            v-model="projet.nom"
-          />
-          <input required type="date" v-model="projet.date" />
-          <select v-model="projet.type" placeholder="Type du site" required>
+          <input type="text" placeholder="Nom du projet" v-model="projet.nom" />
+          <input type="date" v-model="projet.date" />
+          <select v-model="projet.leTypeDuProjet.id" placeholder="Type du site">
             <option value="0" disabled selected>
               Selectionner un type de site
             </option>
@@ -45,7 +39,7 @@
               </button>
             </router-link>
             <button class="btn-submit">
-              Ajouter
+              Modifier
             </button>
           </div>
         </form>
@@ -63,9 +57,13 @@ export default {
     return {
       imageData: "@/../static/project.jpg",
       projet: {
+        id: 0,
         nom: "",
         date: "",
-        type: 0,
+        leTypeDuProjet: {
+          id: 0,
+          nom_type: ""
+        },
         image: "@/../static/project.jpg"
       },
       listeTypes: []
@@ -74,12 +72,14 @@ export default {
   methods: {
     submit: function() {
       let params = new FormData();
+      params.append("id", this.projet.id);
       params.append("nom", this.projet.nom);
       params.append("date", this.projet.date);
+      params.append("idType", this.projet.leTypeDuProjet.id);
       params.append("image", this.projet.image);
-      params.append("idType", this.projet.type);
-      Api.maj("createProjet", params)
+      Api.maj("updateProjet", params)
         .then(response => {
+          //   console.log("modification", response);
           this.$router.push("/projets");
         })
         .catch(error => console.log(error));
@@ -97,6 +97,16 @@ export default {
     }
   },
   created() {
+    this.projet.id = this.$route.params.id;
+    let params = new FormData();
+    params.append("id", this.projet.id);
+    Api.find("getProjet", params)
+      .then(response => {
+        console.log("get projet : ", response);
+        this.projet = response;
+        this.imageData = this.projet.image;
+      })
+      .catch(error => console.log(error));
     Api.get("listeTypes")
       .then(response => {
         // console.log("liste type de site", response);

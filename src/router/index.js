@@ -5,14 +5,17 @@ import Accueil from "@/components/Accueil";
 // Projet
 import Projets from "@/components/Projets";
 import CreateProjet from "@/components/Projets/CreateProjet";
+import UpdateProjet from "@/components/Projets/UpdateProjet";
 
 // Skills
 import Skills from "@/components/Skills";
 import CreateSkill from "@/components/Skills/CreateSkill";
+import UpdateSkill from "@/components/Skills/UpdateSkill";
 
 // Notions
 import Notions from "@/components/Notions";
 import CreateNotion from "@/components/Notions/CreateNotion";
+import UpdateNotion from "@/components/Notions/UpdateNotion";
 
 Vue.use(Router);
 
@@ -34,6 +37,11 @@ export default new Router({
       component: CreateProjet
     },
     {
+      path: "/modifier-projet/:id",
+      name: "UpdateProjet",
+      component: UpdateProjet
+    },
+    {
       path: "/competences",
       name: "Skills",
       component: Skills
@@ -44,6 +52,11 @@ export default new Router({
       component: CreateSkill
     },
     {
+      path: "/modifier-skill/:id",
+      name: "UpdateSkill",
+      component: UpdateSkill
+    },
+    {
       path: "/notions",
       name: "Notions",
       component: Notions
@@ -52,6 +65,11 @@ export default new Router({
       path: "/creer-notion",
       name: "CreateNotion",
       component: CreateNotion
+    },
+    {
+      path: "/modifier-notion/:id",
+      name: "UpdateNotion",
+      component: UpdateNotion
     }
   ]
 });

@@ -12,7 +12,12 @@
       <div class="box-project" v-for="projet in listeProject" :key="projet.id">
         <div class="box-project-change">
           <span title="Modifier le projet">
-            <router-link to="#">
+            <router-link
+              :to="{
+                name: 'UpdateProjet',
+                params: { id: projet.id }
+              }"
+            >
               <i class="fas fa-edit"></i>
             </router-link>
           </span>

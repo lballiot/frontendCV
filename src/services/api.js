@@ -12,9 +12,10 @@ export default {
       return response.data;
     });
   },
-  async find(type, id) {
-    console.log(type);
-    console.log(id);
-    return axios.get(param[type] + "?id=" + id).then(response => response.data);
+  //get only one participant/video with the id
+  async find(type, params) {
+    return axios.post(param[type], params).then(response => {
+      return response.data;
+    });
   }
 };

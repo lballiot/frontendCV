@@ -38,7 +38,7 @@
             <span title="Modifier la compétence">
               <router-link
                 :to="{
-                  name: 'EditSkill',
+                  name: 'UpdateSkill',
                   params: { id: data.item.id }
                 }"
               >
