@@ -4,7 +4,7 @@
       <h2>Création d'une notion :</h2>
     </div>
     <div class="main-card-body">
-      <div class="card-create">
+      <div class="card-crud">
         <form action="" @submit.prevent="submit">
           <input
             required
@@ -12,12 +12,12 @@
             placeholder="Nom de la notion"
             v-model="notion"
           />
-          <div class="card-create-btn">
-            <router-link to="/notions">
-              <button class="btn-cancel">
+          <div class="card-crud-btn">
+            <button class="btn-cancel">
+              <router-link to="/notions">
                 Annuler
-              </button>
-            </router-link>
+              </router-link>
+            </button>
             <button class="btn-submit">
               Ajouter
             </button>

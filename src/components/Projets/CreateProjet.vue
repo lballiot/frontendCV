@@ -4,11 +4,13 @@
       <h2>Création d'un projet :</h2>
     </div>
     <div class="main-card-body">
-      <div class="card-create card-projet">
+      <div class="card-crud card-projet">
         <div class="previewImage-projet">
           <img :src="imageData" alt="project" />
           <div class="custom-file">
-            <label for="validatedCustomFile">Selectionnez une image...</label>
+            <label class="label-img" for="validatedCustomFile"
+              >Selectionnez une image...</label
+            >
             <input
               type="file"
               id="validatedCustomFile"
@@ -38,12 +40,12 @@
               >{{ type.nom_type }}</option
             >
           </select>
-          <div class="card-create-btn">
-            <router-link to="/projets">
-              <button class="btn-cancel">
+          <div class="card-crud-btn">
+            <button class="btn-cancel">
+              <router-link to="/projets">
                 Annuler
-              </button>
-            </router-link>
+              </router-link>
+            </button>
             <button class="btn-submit">
               Ajouter
             </button>

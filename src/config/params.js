@@ -7,16 +7,19 @@ export default {
   getProjet: host + "get/" + "getProjet.php",
   createProjet: host + "crud/" + "createProjet.php",
   updateProjet: host + "crud/" + "updateProjet.php",
+  deleteProjet: host + "crud/" + "deleteProjet.php",
 
   listeCompetences: host + "listeCompetences.php",
   getCompetence: host + "get/" + "getCompetence.php",
   createCompetence: host + "crud/" + "createCompetence.php",
   updateCompetence: host + "crud/" + "updateCompetence.php",
+  deleteCompetence: host + "crud/" + "deleteCompetence.php",
 
   listeNotions: host + "listeNotions.php",
   getNotion: host + "get/" + "getNotion.php",
   createNotion: host + "crud/" + "createNotion.php",
   updateNotion: host + "crud/" + "updateNotion.php",
+  deleteNotion: host + "crud/" + "deleteNotion.php",
 
   listeTypes: host + "listeTypes.php"
 };

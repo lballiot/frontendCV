@@ -6,16 +6,19 @@ import Accueil from "@/components/Accueil";
 import Projets from "@/components/Projets";
 import CreateProjet from "@/components/Projets/CreateProjet";
 import UpdateProjet from "@/components/Projets/UpdateProjet";
+import DeleteProjet from "@/components/Projets/DeleteProjet";
 
 // Skills
 import Skills from "@/components/Skills";
 import CreateSkill from "@/components/Skills/CreateSkill";
 import UpdateSkill from "@/components/Skills/UpdateSkill";
+import DeleteSkill from "@/components/Skills/DeleteSkill";
 
 // Notions
 import Notions from "@/components/Notions";
 import CreateNotion from "@/components/Notions/CreateNotion";
 import UpdateNotion from "@/components/Notions/UpdateNotion";
+import DeleteNotion from "@/components/Notions/DeleteNotion";
 
 Vue.use(Router);
 
@@ -42,6 +45,11 @@ export default new Router({
       component: UpdateProjet
     },
     {
+      path: "/supprimer-projet/:id",
+      name: "DeleteProjet",
+      component: DeleteProjet
+    },
+    {
       path: "/competences",
       name: "Skills",
       component: Skills
@@ -57,6 +65,11 @@ export default new Router({
       component: UpdateSkill
     },
     {
+      path: "/supprimer-skill/:id",
+      name: "DeleteSkill",
+      component: DeleteSkill
+    },
+    {
       path: "/notions",
       name: "Notions",
       component: Notions
@@ -70,6 +83,11 @@ export default new Router({
       path: "/modifier-notion/:id",
       name: "UpdateNotion",
       component: UpdateNotion
+    },
+    {
+      path: "/supprimer-notion/:id",
+      name: "DeleteNotion",
+      component: DeleteNotion
     }
   ]
 });

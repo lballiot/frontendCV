@@ -36,7 +36,12 @@
               </router-link>
             </span>
             <span title="Supprimer la notion">
-              <router-link to="#">
+              <router-link
+                :to="{
+                  name: 'DeleteNotion',
+                  params: { id: data.item.id }
+                }"
+              >
                 <i class="fas fa-trash-alt"></i>
               </router-link>
             </span>

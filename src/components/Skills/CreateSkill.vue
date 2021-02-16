@@ -4,7 +4,7 @@
       <h2>Création d'une compétence :</h2>
     </div>
     <div class="main-card-body">
-      <div class="card-create">
+      <div class="card-crud">
         <form action="" @submit.prevent="submit">
           <input
             required
@@ -27,12 +27,12 @@
             <i class="fab fa-2x" :class="iconSkill"></i>
           </div>
 
-          <div class="card-create-btn">
-            <router-link to="/competences">
-              <button class="btn-cancel">
+          <div class="card-crud-btn">
+            <button class="btn-cancel">
+              <router-link to="/competences">
                 Annuler
-              </button>
-            </router-link>
+              </router-link>
+            </button>
             <button class="btn-submit">
               Ajouter
             </button>

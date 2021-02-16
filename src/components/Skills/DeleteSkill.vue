@@ -1,25 +1,19 @@
 <template>
   <div class="main">
     <div class="main-card-header">
-      <h2>Modification d'une compétence :</h2>
+      <h2>Suppression d'une compétence :</h2>
     </div>
     <div class="main-card-body">
       <div class="card-crud">
         <form action="" @submit.prevent="submit">
-          <input
-            type="text"
-            placeholder="Nom de la compétence"
-            v-model="skill.nom_competence"
-          />
-          <p class="legend">
-            Vous devez mettre la classe d'une icône fontawesome, si celle ci
-            n'existe pas mettre un point
-          </p>
-          <input
-            type="text"
-            placeholder="Icône de la compétence"
-            v-model="skill.icon_competence"
-          />
+          <div class="form-group">
+            <label for="nom">Nom de la compétence :</label>
+            <input disabled type="text" :value="skill.nom_competence" />
+          </div>
+          <div class="form-group">
+            <label for="nom">Icone de la compétence :</label>
+            <input disabled type="text" :value="skill.icon_competence" />
+          </div>
           <div
             class="previewIcon"
             v-if="skill.icon_competence && skill.icon_competence != '.'"
@@ -27,7 +21,13 @@
             <p>Prévisualisation de l'icône fontawesome :</p>
             <i class="fab fa-2x" :class="skill.icon_competence"></i>
           </div>
-
+          <div class="warning-delete">
+            <p>
+              Voulez-vous vraiment supprimer la compétence
+              <span>{{ skill.nom_competence }} </span> ?
+            </p>
+            <p class="legend-delete">Attention : cet action est irréversible</p>
+          </div>
           <div class="card-crud-btn">
             <button class="btn-cancel">
               <router-link to="/competences">
@@ -35,7 +35,7 @@
               </router-link>
             </button>
             <button class="btn-submit">
-              Modifier
+              Supprimer
             </button>
           </div>
         </form>
@@ -48,7 +48,7 @@
 import Api from "@/services/api";
 
 export default {
-  name: "UpdateSkill",
+  name: "DeleteSkill",
   data() {
     return {
       skill: {
@@ -62,12 +62,9 @@ export default {
     submit: function() {
       let params = new FormData();
       params.append("id", this.skill.id);
-      params.append("nom_competence", this.skill.nom_competence);
-      params.append("icon_competence", this.skill.icon_competence);
-      Api.maj("updateCompetence", params)
+      Api.maj("deleteCompetence", params)
         .then(response => {
-          console.log("response modification");
-          console.log(response);
+          //   console.log("suppression", response);
           this.$router.push("/competences");
         })
         .catch(error => console.log(error));
@@ -79,7 +76,7 @@ export default {
     params.append("id", this.skill.id);
     Api.find("getCompetence", params)
       .then(response => {
-        console.log("response", response);
+        // console.log("response", response);
         this.skill = response;
       })
       .catch(error => console.log(error));

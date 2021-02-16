@@ -1,39 +1,37 @@
 <template>
   <div class="main">
     <div class="main-card-header">
-      <h2>Modification d'un projet :</h2>
+      <h2>Suppression d'un projet :</h2>
     </div>
     <div class="main-card-body">
       <div class="card-crud card-projet">
         <div class="previewImage-projet">
           <img :src="imageData" alt="project" />
-          <div class="custom-file">
-            <label class="label-img" for="validatedCustomFile"
-              >Selectionnez une image...</label
-            >
-            <input
-              type="file"
-              id="validatedCustomFile"
-              @change="previewImage"
-            />
-            <div class="invalid-feedback">Image invalide</div>
-          </div>
         </div>
         <form action="" @submit.prevent="submit">
-          <input type="text" placeholder="Nom du projet" v-model="projet.nom" />
-          <input type="date" v-model="projet.date" />
-          <select v-model="projet.leTypeDuProjet.id" placeholder="Type du site">
-            <option value="0" disabled selected>
-              Selectionner un type de site
-            </option>
-
-            <option
-              v-for="type in listeTypes"
-              :key="type.id"
-              :value="type.id"
-              >{{ type.nom_type }}</option
-            >
-          </select>
+          <div class="form-group">
+            <label for="nom">Nom du projet :</label>
+            <input disabled type="text" :value="projet.nom" />
+          </div>
+          <div class="form-group">
+            <label for="nom">Date de création du projet :</label>
+            <input disabled type="date" :value="projet.date" />
+          </div>
+          <div class="form-group">
+            <label for="nom">Type de projet :</label>
+            <input
+              disabled
+              type="text"
+              :value="projet.leTypeDuProjet.nom_type"
+            />
+          </div>
+          <div class="warning-delete">
+            <p>
+              Voulez-vous vraiment supprimer le projet
+              <span>{{ projet.nom }} </span> ?
+            </p>
+            <p class="legend-delete">Attention : cet action est irréversible</p>
+          </div>
           <div class="card-crud-btn">
             <button class="btn-cancel">
               <router-link to="/projets">
@@ -41,7 +39,7 @@
               </router-link>
             </button>
             <button class="btn-submit">
-              Modifier
+              Supprimer
             </button>
           </div>
         </form>
@@ -54,7 +52,7 @@
 import Api from "@/services/api";
 
 export default {
-  name: "CreateProjet",
+  name: "DeleteProjet",
   data() {
     return {
       imageData: "@/../static/project.jpg",
@@ -75,13 +73,9 @@ export default {
     submit: function() {
       let params = new FormData();
       params.append("id", this.projet.id);
-      params.append("nom", this.projet.nom);
-      params.append("date", this.projet.date);
-      params.append("idType", this.projet.leTypeDuProjet.id);
-      params.append("image", this.projet.image);
-      Api.maj("updateProjet", params)
+      Api.maj("deleteProjet", params)
         .then(response => {
-          //   console.log("modification", response);
+          console.log("suppression", response);
           this.$router.push("/projets");
         })
         .catch(error => console.log(error));
@@ -107,12 +101,6 @@ export default {
         console.log("get projet : ", response);
         this.projet = response;
         this.imageData = this.projet.image;
-      })
-      .catch(error => console.log(error));
-    Api.get("listeTypes")
-      .then(response => {
-        // console.log("liste type de site", response);
-        this.listeTypes = response;
       })
       .catch(error => console.log(error));
   }

@@ -1,17 +1,22 @@
 <template>
   <div class="main">
     <div class="main-card-header">
-      <h2>Modification d'une notion :</h2>
+      <h2>Suppression d'une notion :</h2>
     </div>
     <div class="main-card-body">
       <div class="card-crud">
         <form action="" @submit.prevent="submit">
-          <input
-            required
-            type="text"
-            placeholder="Nom de la notion"
-            v-model="notion.nom_notion"
-          />
+          <div class="form-group">
+            <label for="nom">Nom de la notion :</label>
+            <input disabled type="text" :value="notion.nom_notion" />
+          </div>
+          <div class="warning-delete">
+            <p>
+              Voulez-vous vraiment supprimer la notion
+              <span>{{ notion.nom_notion }} </span> ?
+            </p>
+            <p class="legend-delete">Attention : cet action est irréversible</p>
+          </div>
           <div class="card-crud-btn">
             <button class="btn-cancel">
               <router-link to="/notions">
@@ -19,7 +24,7 @@
               </router-link>
             </button>
             <button class="btn-submit">
-              Modifier
+              Supprimer
             </button>
           </div>
         </form>
@@ -32,7 +37,7 @@
 import Api from "@/services/api";
 
 export default {
-  name: "UpdateNotion",
+  name: "DeleteNotion",
   data() {
     return {
       notion: {
@@ -45,10 +50,9 @@ export default {
     submit: function() {
       let params = new FormData();
       params.append("id", this.notion.id);
-      params.append("nom_notion", this.notion.nom_notion);
-      Api.maj("updateNotion", params)
+      Api.maj("deleteNotion", params)
         .then(response => {
-          console.log("modification", response);
+          console.log("suppression", response);
           this.$router.push("/notions");
         })
         .catch(error => console.log(error));
