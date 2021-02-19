@@ -55,6 +55,16 @@
                 <i class="fas fa-trash-alt"></i>
               </router-link>
             </span>
+            <span title="Gérer la compétence">
+              <router-link
+                :to="{
+                  name: 'ManageSkill',
+                  params: { id: data.item.id }
+                }"
+              >
+                <i class="fas fa-file-code"></i>
+              </router-link>
+            </span>
           </template>
         </b-table>
       </div>

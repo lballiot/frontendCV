@@ -14,12 +14,14 @@ export default {
   createCompetence: host + "crud/" + "createCompetence.php",
   updateCompetence: host + "crud/" + "updateCompetence.php",
   deleteCompetence: host + "crud/" + "deleteCompetence.php",
+  manageCompetence: host + "manage/" + "manageCompetence.php",
 
   listeNotions: host + "listeNotions.php",
   getNotion: host + "get/" + "getNotion.php",
   createNotion: host + "crud/" + "createNotion.php",
   updateNotion: host + "crud/" + "updateNotion.php",
   deleteNotion: host + "crud/" + "deleteNotion.php",
+  manageNotion: host + "manage/" + "manageNotion.php",
 
   listeTypes: host + "listeTypes.php"
 };

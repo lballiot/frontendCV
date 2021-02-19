@@ -13,12 +13,14 @@ import Skills from "@/components/Skills";
 import CreateSkill from "@/components/Skills/CreateSkill";
 import UpdateSkill from "@/components/Skills/UpdateSkill";
 import DeleteSkill from "@/components/Skills/DeleteSkill";
+import ManageSkill from "@/components/Skills/ManageSkill";
 
 // Notions
 import Notions from "@/components/Notions";
 import CreateNotion from "@/components/Notions/CreateNotion";
 import UpdateNotion from "@/components/Notions/UpdateNotion";
 import DeleteNotion from "@/components/Notions/DeleteNotion";
+import ManageNotion from "@/components/Notions/ManageNotion";
 
 Vue.use(Router);
 
@@ -70,6 +72,11 @@ export default new Router({
       component: DeleteSkill
     },
     {
+      path: "/gerer-skill/:id",
+      name: "ManageSkill",
+      component: ManageSkill
+    },
+    {
       path: "/notions",
       name: "Notions",
       component: Notions
@@ -88,6 +95,11 @@ export default new Router({
       path: "/supprimer-notion/:id",
       name: "DeleteNotion",
       component: DeleteNotion
+    },
+    {
+      path: "/gerer-notion/:id",
+      name: "ManageNotion",
+      component: ManageNotion
     }
   ]
 });

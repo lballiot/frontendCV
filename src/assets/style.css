@@ -451,7 +451,7 @@ i {
 .separator {
   height: 1px;
   width: 50%;
-  margin: 1rem;
+  margin: 1rem auto;
   background: #24262e; }
 
 .logo {
@@ -563,8 +563,11 @@ select {
 .main-card-header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   margin: 2rem; }
+  .main-card-header button {
+    margin: 1rem; }
+    .main-card-header button a {
+      color: #24262e; }
 
 .main-card-body .box-project {
   display: grid;
@@ -650,6 +653,29 @@ select {
     justify-content: space-between; }
     .card-crud-btn .btn-cancel a {
       color: #24262e; }
+  .card-crud .liste-manage {
+    display: flex;
+    flex-flow: row wrap;
+    margin: 4rem auto;
+    width: 80%; }
+    .card-crud .liste-manage h5 {
+      text-align: center;
+      width: 100%;
+      margin-bottom: 2rem; }
+    .card-crud .liste-manage-item {
+      border: 1px solid #5a5f72;
+      padding: 0.5rem 1rem;
+      background-color: rgba(90, 95, 114, 0.4);
+      color: #24262e;
+      margin: auto; }
+      .card-crud .liste-manage-item i {
+        font-size: 2rem;
+        margin-left: 1rem; }
+  .card-crud .card-manage-btn {
+    display: flex;
+    width: 80%; }
+    .card-crud .card-manage-btn button {
+      margin: 1rem; }
 
 .card-projet {
   margin: 3rem;
