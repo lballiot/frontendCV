@@ -15,7 +15,22 @@
           />
         </svg>
       </router-link>
-      <nav>
+
+      <Slide right class="vue-bm" :closeOnNavigation="true">
+        <router-link to="/projets" class="nav-link">
+          Projets
+        </router-link>
+
+        <router-link to="/competences" class="nav-link">
+          Compétences
+        </router-link>
+
+        <router-link to="/notions" class="nav-link">
+          Notions
+        </router-link>
+      </Slide>
+
+      <nav class="menu-flex">
         <router-link to="/projets" class="nav-link">
           Projets
         </router-link>
@@ -43,8 +58,13 @@
 </template>
 
 <script>
+import { Slide } from "vue-burger-menu"; // import the CSS transitions you wish to use, in this case we are using `Slide`
+
 export default {
   name: "App",
+  components: {
+    Slide // Register your component
+  },
   data() {
     return {
       year: 0

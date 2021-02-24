@@ -375,14 +375,16 @@ a {
 
 body {
   font-size: 1.6rem;
-  background: #e8e9ed; }
+  background: #e8e9ed;
+  width: 100%;
+  min-height: 100vh; }
 
 /* SET GRID TEMPLATE */
 .container-principal {
   width: 100%;
   min-height: 100vh;
   display: grid;
-  grid: "header" auto "main" 1fr "footer" auto; }
+  grid: "header" auto "main" 1fr "footer" auto / 1fr; }
 
 .header {
   grid-area: header;
@@ -409,6 +411,11 @@ footer {
     footer p a {
       color: #e94f37;
       margin: 0; }
+
+@media only screen and (max-width: 768px) {
+  footer p {
+    font-size: 1.4rem;
+    line-height: 2.5rem; } }
 
 /* SET DEFAULT TITLE SIZE */
 h1 {
@@ -536,20 +543,46 @@ select {
   flex-direction: row;
   justify-content: space-between;
   align-items: center; }
-  .header nav {
+  .header .vue-bm {
+    display: none; }
+  .header .menu-flex {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center; }
-    .header nav .nav-link {
+    .header .menu-flex .nav-link {
       padding: 3rem;
       font-size: 2rem; }
+
+@media only screen and (max-width: 768px) {
+  .header {
+    padding: 1rem; }
+    .header .menu-flex {
+      display: none; }
+    .header .vue-bm {
+      display: initial; }
+      .header .vue-bm .bm-menu {
+        display: flex;
+        justify-content: center;
+        align-items: center; }
+        .header .vue-bm .bm-menu .bm-item-list {
+          margin: 0;
+          margin-top: -5rem;
+          flex-direction: column; }
+      .header .vue-bm .bm-burger-button {
+        top: 25px; }
+        .header .vue-bm .bm-burger-button .line-style {
+          background: #e94f37; }
+    .header svg {
+      height: 30px;
+      width: 30px; } }
 
 .container-accueil {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+  width: 100%; }
   .container-accueil .accueil-welcome {
     margin-top: 8rem;
     font-size: 3rem; }
@@ -560,10 +593,24 @@ select {
     .container-accueil .accueil-presentation p {
       font-size: 2.5rem; }
 
+@media only screen and (max-width: 768px) {
+  .container-accueil .accueil-presentation h1 {
+    font-size: 4rem; }
+  .container-accueil .accueil-presentation p {
+    font-size: 2rem; }
+  .container-accueil .accueil-welcome {
+    font-size: 2rem;
+    text-align: center; } }
+
 .main-card-header {
   display: flex;
   justify-content: space-between;
   margin: 2rem; }
+  .main-card-header span {
+    align-self: center;
+    justify-self: center; }
+    .main-card-header span a {
+      color: #24262e; }
   .main-card-header button {
     margin: 1rem; }
     .main-card-header button a {
@@ -572,8 +619,9 @@ select {
 .main-card-body .box-project {
   display: grid;
   grid: ". btn" auto "img details" auto / 1fr 1fr;
+  width: 80%;
+  margin: 1rem auto;
   padding: 2rem;
-  margin: 1rem;
   align-items: center;
   background-color: #5a5f72;
   color: #e8e9ed; }
@@ -601,12 +649,20 @@ select {
       font-size: 2.5rem;
       padding-right: 1rem; }
 
+@media only screen and (max-width: 768px) {
+  .main-card-body .box-project {
+    grid: "img" auto "details" 1fr "btn" auto / 1fr; }
+    .main-card-body .box-project-details {
+      padding: 0; } }
+
 .main-card-body-table {
   display: flex;
   justify-content: center; }
 
 .main-card-body .card-table {
   max-width: 80%; }
+  .main-card-body .card-table .card-body-separate {
+    display: flex; }
   .main-card-body .card-table thead {
     background: #5a5f72;
     color: #e8e9ed; }
@@ -617,17 +673,30 @@ select {
     .main-card-body .card-table tbody tr td {
       border: 1px solid #5a5f72; }
 
+@media only screen and (max-width: 768px) {
+  .table-responsive {
+    margin: auto; }
+    .table-responsive .fas {
+      font-size: 2rem; } }
+
 .card-crud {
   margin-top: 4rem;
   padding: 2rem; }
-  .card-crud .form-group {
+  .card-crud .form-group, .card-crud .form-group-array {
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center; }
-    .card-crud .form-group label {
+    align-items: center;
+    margin-bottom: 1rem; }
+    .card-crud .form-group label, .card-crud .form-group-array label {
       align-self: flex-start;
       padding-left: 10%; }
+    .card-crud .form-group-array {
+      flex-flow: row wrap;
+      padding-left: 10%;
+      margin-bottom: 2rem; }
+      .card-crud .form-group-array label {
+        padding-left: initial; }
   .card-crud form {
     display: flex;
     margin: auto;
@@ -635,6 +704,14 @@ select {
     justify-content: center;
     align-items: center;
     width: 80%; }
+    .card-crud form .form-group-type-create {
+      display: flex;
+      flex-flow: row nowrap;
+      width: 80%; }
+      .card-crud form .form-group-type-create select {
+        margin: 1rem 2rem 1rem 0; }
+      .card-crud form .form-group-type-create span {
+        align-self: center; }
     .card-crud form .legend {
       margin-top: 2.5rem;
       font-size: 1.2rem;
@@ -662,20 +739,35 @@ select {
       text-align: center;
       width: 100%;
       margin-bottom: 2rem; }
-    .card-crud .liste-manage-item {
+    .card-crud .liste-manage-item, .card-crud .liste-manage-item-delete {
       border: 1px solid #5a5f72;
       padding: 0.5rem 1rem;
       background-color: rgba(90, 95, 114, 0.4);
       color: #24262e;
       margin: auto; }
-      .card-crud .liste-manage-item i {
+      .card-crud .liste-manage-item i, .card-crud .liste-manage-item-delete i {
         font-size: 2rem;
         margin-left: 1rem; }
+      .card-crud .liste-manage-item-delete {
+        background: linear-gradient(360deg, rgba(90, 95, 114, 0.4), transparent);
+        border: none;
+        border-bottom: 1px solid #5a5f72;
+        margin: 0 1rem 0.5rem 1rem; }
   .card-crud .card-manage-btn {
     display: flex;
     width: 80%; }
     .card-crud .card-manage-btn button {
       margin: 1rem; }
+
+@media only screen and (max-width: 768px) {
+  .card-crud form {
+    width: 100%; }
+  .card-crud .card-manage-btn {
+    flex-direction: column;
+    width: 100%;
+    align-items: center; }
+    .card-crud .card-manage-btn select {
+      width: 95%; } }
 
 .card-projet {
   margin: 3rem;
@@ -685,3 +777,21 @@ select {
     grid-area: imgProjet; }
   .card-projet form {
     grid-area: inputs; }
+  .card-projet .liste-competence {
+    width: 80%; }
+    .card-projet .liste-competence label {
+      width: 100%;
+      margin: 1rem 0; }
+    .card-projet .liste-competence span {
+      margin: 0 1rem 1rem 0; }
+    .card-projet .liste-competence .selected {
+      background: #e94f37; }
+
+@media only screen and (max-width: 768px) {
+  .card-projet {
+    grid: "imgProjet" auto "inputs" auto / 1fr;
+    margin: 0; }
+    .card-projet form {
+      width: 100%; }
+    .card-projet .previewImage-projet {
+      padding: 0 2rem; } }

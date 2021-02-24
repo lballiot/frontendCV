@@ -23,5 +23,6 @@ export default {
   deleteNotion: host + "crud/" + "deleteNotion.php",
   manageNotion: host + "manage/" + "manageNotion.php",
 
-  listeTypes: host + "listeTypes.php"
+  listeTypes: host + "listeTypes.php",
+  createType: host + "crud/" + "createType.php"
 };

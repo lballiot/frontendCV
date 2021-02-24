@@ -10,7 +10,14 @@
     </div>
     <div class="main-card-body">
       <div class="main-card-body-table">
-        <b-table hover :items="listeNotions" :fields="cols" class="card-table">
+        <b-table
+          hover
+          striped
+          responsive
+          :items="listeNotions"
+          :fields="cols"
+          class="card-table"
+        >
           <!-- Template icon -->
           <template v-slot:cell(icon)="data">
             <i :class="data.item.icon"></i>
@@ -18,9 +25,14 @@
 
           <!-- Template projets -->
           <template v-slot:cell(lesProjets)="data">
-            <span v-for="projet in data.item.lesProjets" :key="projet.id">
-              {{ projet.nom }},
-            </span>
+            <div class="card-body-separate">
+              <div v-for="(projet, i) in data.item.lesProjets" :key="i">
+                <span v-if="i === 0">
+                  {{ projet.nom }}
+                </span>
+                <span v-else> , {{ projet.nom }} </span>
+              </div>
+            </div>
           </template>
 
           <!-- Template actions -->

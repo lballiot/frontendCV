@@ -5,6 +5,9 @@
   }
   .card-table {
     max-width: 80%;
+    .card-body-separate {
+      display: flex;
+    }
     thead {
       background: $grey;
       color: $light;
@@ -21,6 +24,15 @@
           border: 1px solid $grey;
         }
       }
+    }
+  }
+}
+
+@include mobile {
+  .table-responsive {
+    margin: auto;
+    .fas {
+      font-size: 2rem;
     }
   }
 }

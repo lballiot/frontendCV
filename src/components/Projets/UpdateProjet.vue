@@ -34,6 +34,13 @@
               >{{ type.nom_type }}</option
             >
           </select>
+
+          <div class="separator"></div>
+          <span
+            >Vous pouvez modifier les compétences et notions attachées à ce
+            projet dans les onglets prévu pour.</span
+          >
+
           <div class="card-crud-btn">
             <button class="btn-cancel">
               <router-link to="/projets">
@@ -52,9 +59,13 @@
 
 <script>
 import Api from "@/services/api";
+import btn from "./btn";
 
 export default {
   name: "CreateProjet",
+  components: {
+    btn
+  },
   data() {
     return {
       imageData: "@/../static/project.jpg",

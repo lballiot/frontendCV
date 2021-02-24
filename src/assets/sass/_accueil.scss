@@ -3,6 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
   .accueil-welcome {
     margin-top: 8rem;
     font-size: 3rem;
@@ -14,6 +15,23 @@
     }
     p {
       font-size: 2.5rem;
+    }
+  }
+}
+
+@include mobile {
+  .container-accueil {
+    .accueil-presentation {
+      h1 {
+        font-size: 4rem;
+      }
+      p {
+        font-size: 2rem;
+      }
+    }
+    .accueil-welcome {
+      font-size: 2rem;
+      text-align: center;
     }
   }
 }

@@ -50,10 +50,11 @@
           >
             Compétences utilisées :
             <span
-              v-for="competence in projet.lesCompetencesUtilises"
-              :key="competence.id"
+              v-for="(competence, i) in projet.lesCompetencesUtilises"
+              :key="i"
             >
-              {{ competence.nom_competence }},
+              <span v-if="i === 0">{{ competence.nom_competence }}</span>
+              <span v-else>, {{ competence.nom_competence }}</span>
             </span>
           </p>
           <p
@@ -61,8 +62,9 @@
             v-if="projet.lesNotionsTraitees.length > 0"
           >
             Notions traitées :
-            <span v-for="notion in projet.lesNotionsTraitees" :key="notion.id">
-              {{ notion.nom_notion }},
+            <span v-for="(notion, i) in projet.lesNotionsTraitees" :key="i">
+              <span v-if="i === 0">{{ notion.nom_notion }}</span>
+              <span v-else>, {{ notion.nom_notion }}</span>
             </span>
           </p>
         </div>

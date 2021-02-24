@@ -5,8 +5,9 @@
       ". btn" auto
       "img details" auto
       / 1fr 1fr;
+    width: 80%;
+    margin: 1rem auto;
     padding: 2rem;
-    margin: 1rem;
     align-items: center;
     background-color: $grey;
     color: $light;
@@ -37,6 +38,21 @@
       i {
         font-size: 2.5rem;
         padding-right: 1rem;
+      }
+    }
+  }
+}
+
+@include mobile {
+  .main-card-body {
+    .box-project {
+      grid:
+        "img" auto
+        "details" 1fr
+        "btn" auto
+        / 1fr;
+      &-details {
+        padding: 0;
       }
     }
   }

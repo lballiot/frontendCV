@@ -25,6 +25,26 @@
               :value="projet.leTypeDuProjet.nom_type"
             />
           </div>
+          <div class="form-group-array">
+            <label for="nom">Compétence utilisées :</label>
+            <span
+              class="liste-manage-item-delete"
+              v-for="competence in projet.lesCompetencesUtilises"
+              :key="competence.id"
+            >
+              {{ competence.nom_competence }}
+            </span>
+          </div>
+          <div class="form-group-array">
+            <label for="nom">Notions traitées :</label>
+            <span
+              class="liste-manage-item-delete"
+              v-for="notion in projet.lesNotionsTraitees"
+              :key="notion.id"
+            >
+              {{ notion.nom_notion }}
+            </span>
+          </div>
           <div class="warning-delete">
             <p>
               Voulez-vous vraiment supprimer le projet
@@ -64,6 +84,8 @@ export default {
           id: 0,
           nom_type: ""
         },
+        lesNotionsTraitees: [],
+        lesCompetencesUtilises: [],
         image: "@/../static/project.jpg"
       },
       listeTypes: []

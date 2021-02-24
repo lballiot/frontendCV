@@ -8,6 +8,9 @@ import CreateProjet from "@/components/Projets/CreateProjet";
 import UpdateProjet from "@/components/Projets/UpdateProjet";
 import DeleteProjet from "@/components/Projets/DeleteProjet";
 
+// Type
+import CreateType from "@/components/Types/CreateType";
+
 // Skills
 import Skills from "@/components/Skills";
 import CreateSkill from "@/components/Skills/CreateSkill";
@@ -40,6 +43,11 @@ export default new Router({
       path: "/creer-projet",
       name: "CreateProjet",
       component: CreateProjet
+    },
+    {
+      path: "/creer-type",
+      name: "CreateType",
+      component: CreateType
     },
     {
       path: "/modifier-projet/:id",

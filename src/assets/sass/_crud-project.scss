@@ -10,4 +10,33 @@
   form {
     grid-area: inputs;
   }
+  .liste-competence {
+    width: 80%;
+    label {
+      width: 100%;
+      margin: 1rem 0;
+    }
+    span {
+      margin: 0 1rem 1rem 0;
+    }
+    .selected {
+      background: $red;
+    }
+  }
+}
+
+@include mobile {
+  .card-projet {
+    grid:
+      "imgProjet" auto
+      "inputs" auto
+      / 1fr;
+    margin: 0;
+    form {
+      width: 100%;
+    }
+    .previewImage-projet {
+      padding: 0 2rem;
+    }
+  }
 }

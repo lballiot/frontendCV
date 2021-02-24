@@ -3,7 +3,10 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  nav {
+  .vue-bm {
+    display: none;
+  }
+  .menu-flex {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -11,6 +14,38 @@
     .nav-link {
       padding: 3rem;
       font-size: 2rem;
+    }
+  }
+}
+
+@include mobile {
+  .header {
+    padding: 1rem;
+    .menu-flex {
+      display: none;
+    }
+    .vue-bm {
+      display: initial;
+      .bm-menu {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .bm-item-list {
+          margin: 0;
+          margin-top: -5rem;
+          flex-direction: column;
+        }
+      }
+      .bm-burger-button {
+        top: 25px;
+        .line-style {
+          background: $red;
+        }
+      }
+    }
+    svg {
+      height: 30px;
+      width: 30px;
     }
   }
 }

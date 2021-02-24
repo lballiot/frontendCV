@@ -2,6 +2,13 @@
   display: flex;
   justify-content: space-between;
   margin: 2rem;
+  span {
+    align-self: center;
+    justify-self: center;
+    a {
+      color: $dark;
+    }
+  }
   button {
     margin: 1rem;
     a {

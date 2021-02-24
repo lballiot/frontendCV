@@ -40,6 +40,8 @@ a {
 body {
   font-size: 1.6rem;
   background: $light;
+  width: 100%;
+  min-height: 100vh;
 }
 /* SET GRID TEMPLATE */
 .container-principal {
@@ -49,7 +51,8 @@ body {
   grid:
     "header" auto
     "main" 1fr
-    "footer" auto;
+    "footer" auto
+    / 1fr;
 }
 .header {
   grid-area: header;
@@ -78,6 +81,15 @@ footer {
     a {
       color: $red;
       margin: 0;
+    }
+  }
+}
+
+@include mobile {
+  footer {
+    p {
+      font-size: 1.4rem;
+      line-height: 2.5rem;
     }
   }
 }

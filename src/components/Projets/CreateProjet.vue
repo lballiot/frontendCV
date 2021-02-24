@@ -28,18 +28,49 @@
             v-model="projet.nom"
           />
           <input required type="date" v-model="projet.date" />
-          <select v-model="projet.type" placeholder="Type du site" required>
-            <option value="0" disabled selected>
-              Selectionner un type de site
-            </option>
+          <div class="form-group-type-create">
+            <select v-model="projet.type" placeholder="Type du site" required>
+              <option value="0" disabled selected>
+                Selectionner un type de site
+              </option>
 
-            <option
-              v-for="type in listeTypes"
-              :key="type.id"
-              :value="type.id"
-              >{{ type.nom_type }}</option
+              <option
+                v-for="type in listeTypes"
+                :key="type.id"
+                :value="type.id"
+                >{{ type.nom_type }}</option
+              >
+            </select>
+            <span title="Créer un nouveau type de site">
+              <router-link to="/creer-type">
+                <i class="fa fa-plus fa-2x"></i>
+              </router-link>
+            </span>
+          </div>
+
+          <!-- Add competence button to add -->
+          <div class="liste-competence">
+            <label>Compétences :</label>
+            <btn
+              v-for="comp in listeCompetences"
+              :key="comp.id"
+              :id="comp.id"
+              :title="comp.nom_competence"
+              :tabCompetence="selectedCompetences"
             >
-          </select>
+            </btn>
+          </div>
+          <div class="liste-competence">
+            <label>Notions :</label>
+            <btn
+              v-for="notion in listeNotions"
+              :key="notion.id"
+              :id="notion.id"
+              :title="notion.nom_notion"
+              :tabCompetence="selectedNotions"
+            >
+            </btn>
+          </div>
           <div class="card-crud-btn">
             <button class="btn-cancel">
               <router-link to="/projets">
@@ -58,9 +89,13 @@
 
 <script>
 import Api from "@/services/api";
+import btn from "./btn";
 
 export default {
   name: "CreateProjet",
+  components: {
+    btn
+  },
   data() {
     return {
       imageData: "@/../static/project.jpg",
@@ -70,7 +105,11 @@ export default {
         type: 0,
         image: "@/../static/project.jpg"
       },
-      listeTypes: []
+      listeTypes: [],
+      listeCompetences: [],
+      listeNotions: [],
+      selectedCompetences: [],
+      selectedNotions: []
     };
   },
   methods: {
@@ -80,6 +119,9 @@ export default {
       params.append("date", this.projet.date);
       params.append("image", this.projet.image);
       params.append("idType", this.projet.type);
+      params.append("idCompetences", this.selectedCompetences);
+      params.append("idNotions", this.selectedNotions);
+
       Api.maj("createProjet", params)
         .then(response => {
           this.$router.push("/projets");
@@ -101,8 +143,17 @@ export default {
   created() {
     Api.get("listeTypes")
       .then(response => {
-        // console.log("liste type de site", response);
         this.listeTypes = response;
+      })
+      .catch(error => console.log(error));
+    Api.get("listeCompetences")
+      .then(response => {
+        this.listeCompetences = response;
+      })
+      .catch(error => console.log(error));
+    Api.get("listeNotions")
+      .then(response => {
+        this.listeNotions = response;
       })
       .catch(error => console.log(error));
   }

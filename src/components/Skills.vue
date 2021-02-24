@@ -13,15 +13,21 @@
         <b-table
           striped
           hover
+          responsive
           :items="listeSkills"
           :fields="cols"
           class="card-table"
         >
           <!-- Template projets -->
           <template v-slot:cell(lesProjets)="data">
-            <span v-for="projet in data.item.lesProjets" :key="projet.id">
-              {{ projet.nom }},
-            </span>
+            <div class="card-body-separate">
+              <div v-for="(projet, i) in data.item.lesProjets" :key="i">
+                <span v-if="i === 0">
+                  {{ projet.nom }}
+                </span>
+                <span v-else> , {{ projet.nom }} </span>
+              </div>
+            </div>
           </template>
 
           <!-- Template icon -->
