@@ -672,12 +672,23 @@ select {
     border: 1px solid #5a5f72; }
     .main-card-body .card-table tbody tr td {
       border: 1px solid #5a5f72; }
+    .main-card-body .card-table tbody tr td:nth-child(3) {
+      width: 50px;
+      text-align: center; }
+    .main-card-body .card-table tbody tr td:last-child {
+      width: 130px; }
 
 @media only screen and (max-width: 768px) {
-  .table-responsive {
+  .main-card-body .card-table {
     margin: auto; }
-    .table-responsive .fas {
-      font-size: 2rem; } }
+    .main-card-body .card-table .fas {
+      font-size: 2rem; }
+    .main-card-body .card-table thead tr th:nth-child(2) {
+      display: none; }
+    .main-card-body .card-table tbody tr td:nth-child(2) {
+      display: none; }
+    .main-card-body .card-table tbody tr td:last-child {
+      width: 150px; } }
 
 .card-crud {
   margin-top: 4rem;

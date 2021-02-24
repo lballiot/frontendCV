@@ -23,16 +23,42 @@
         td {
           border: 1px solid $grey;
         }
+        td:nth-child(3) {
+          width: 50px;
+          text-align: center;
+        }
+        td:last-child() {
+          width: 130px;
+        }
       }
     }
   }
 }
 
 @include mobile {
-  .table-responsive {
-    margin: auto;
-    .fas {
-      font-size: 2rem;
+  .main-card-body {
+    .card-table {
+      margin: auto;
+      .fas {
+        font-size: 2rem;
+      }
+      thead {
+        tr {
+          th:nth-child(2) {
+            display: none;
+          }
+        }
+      }
+      tbody {
+        tr {
+          td:nth-child(2) {
+            display: none;
+          }
+          td:last-child() {
+            width: 150px;
+          }
+        }
+      }
     }
   }
 }
